@@ -1,25 +1,15 @@
-// sw.js - Pyahu Solución Informática
-const CACHE_NAME = 'pyahu-v1';
-const urlsToCache = [
+// sw.js - Versión ultra simple para OFFLINE
+const CACHE_NAME = 'pyahu-offline';
+const ARCHIVOS = [
   '/paraguay/index.html',
-  '/paraguay/manifest.json',
-  'printer-page-imagem/logo-imagen-01.png',
-  'printer-page-imagem/body-fondo-imagen-01.png',
-  'printer-page-imagem/titulo-pagina-imagen-01.png',
-  'printer-page-imagem/footer-imagen-01.png',
-  'printer-page-imagem/footer-imagen-02.png',
-  'printer-page-imagem/image-extra-01.png',
-  'printer-page-imagem/audio-01.mp3'
+  'printer-page-imagem/image-extra-01.png',  // Imagen del regalo offline
+  'printer-page-imagem/logo-imagen-01.png'
 ];
 
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
-  );
+self.addEventListener('install', e => {
+  e.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(ARCHIVOS)));
 });
 
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request).then(response => response || fetch(event.request))
-  );
+self.addEventListener('fetch', e => {
+  e.respondWith(caches.match(e.request).then(r => r || fetch(e.request)));
 });
