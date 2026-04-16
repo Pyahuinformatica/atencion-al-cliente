@@ -1,7 +1,7 @@
 
 ## 🚀 Instalación
 
-1. Coloca todos los archivos en la carpeta `/paraguay/`
+1. Coloca todos los archivos en la carpeta `/atencion-al-cliente/`
 2. Asegúrate de que las imágenes estén en `printer-page-imagem/`
 3. Abre `index.html` en tu navegador
 4. Haz clic en "Instalar App Pyahu" para instalar en tu dispositivo
